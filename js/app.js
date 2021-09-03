@@ -16,8 +16,10 @@ const searchField = () => {
   searchInput.value = "";
   if (searchText === "") {
     searchInputText.innerText = "Search Field cannot be Empty";
-    return;
+  } else {
+    searchInputText.innerText = "";
   }
+
   // loading display
   spinner.style.display = "block";
 };
