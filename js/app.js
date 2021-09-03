@@ -1,24 +1,29 @@
+// global
 const searchInputText = document.getElementById("error");
 const searchResult = document.getElementById("search-result");
 const searchTotal = document.getElementById("total-count");
 const spinner = document.getElementById("spinner");
-
+// call search field
 const searchField = () => {
   const searchInput = document.getElementById("search-input");
   searchText = searchInput.value;
+  // Api fetch
   const url = `https://openlibrary.org/search.json?q=${searchText}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayResult(data.docs, data));
+  // input field Clear and no result found
   searchInput.value = "";
   if (searchText === "") {
     searchInputText.innerText = "Search Field cannot be Empty";
     return;
   }
+  // loading display
   spinner.style.display = "block";
 };
-
+// Output display
 const displayResult = (results, resultData) => {
+  // number of search result
   searchTotal.innerText = `Search Result: ${results.length} out of ${resultData.num_found}`;
   searchTotal.style.display = "block";
   searchResult.textContent = "";
@@ -29,8 +34,7 @@ const displayResult = (results, resultData) => {
     } else {
       searchInputText.innerText = "";
     }
-
-    // console.log(result);
+    // getting info from api
     const div = document.createElement("div");
     div.classList.add("card");
     div.innerHTML = `
@@ -50,8 +54,9 @@ const displayResult = (results, resultData) => {
     </div>
     
           `;
-
+    // append
     searchResult.appendChild(div);
   });
+  //loading off
   spinner.style.display = "none";
 };
