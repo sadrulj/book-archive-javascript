@@ -9,31 +9,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>Book Archive</title>
-    <!-- <script>
-        function getBooks() {
-            document.getElementById("output").innerHTML = "";
-            fetch(
-                `http://openlibrary.org/search.json?q=` +
-                document.getElementById("input").value
-            )
-                .then((res) => res.json())
-                .then((response) => {
-                    for (var i = 0; i < response.docs.lenght; i++) {
-                        document.getElementById("output").innerHTML +=
-                            "<h2>" +
-                            response.docs[i].title +
-                            "</h2>" +
-                            response.docs[i].author_name[0] +
-                            "<br><img scr='https://covers.openlibrary.org/b/isbn/" +
-                            response.docs[i].isbn[0] +
-                            "-M.jpg'><br>";
-                    }
-                });
+    <style>
+        #spinner {
+            display: none;
         }
-    </script> -->
+    </style>
 </head>
 
 <body>
+    <h1 class="my-3 text-center">Book Archive</h1>
     <div class="input-group mb-3 mt-5 justify-content-center align-item-center">
         <div class="w-50 d-flex">
             <input id="search-input" type="text" class="form-control" placeholder="search books by name"
@@ -41,18 +25,22 @@
             <button onclick="searchField()" class="btn btn-outline-secondary bg-danger text-white" type="button"
                 id="button-addon2">Search</button>
         </div>
-
+    </div>
+    <!-- spinner -->
+    <div class="d-flex align-items-center">
+        <div id="spinner" class="spinner mx-auto" role="status" aria-hidden="true">
+            <h4>Loading...</h4>
+        </div>
     </div>
     <!-- count search result -->
-    <div class="text-center">
-        <h2>Search Result: <span id="total-count"></span> </h2>
+    <div id="total-field" class="text-center">
+        <h2 id="total-count"></h2>
     </div>
     <div id="error" class="text-center"></div>
     <hr>
     <!-- display Result -->
     <div id="search-result" class="mx-auto border-0 row row-cols-1 row-cols-md-3 g-4">
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
         crossorigin="anonymous"></script>
