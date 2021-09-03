@@ -1,3 +1,11 @@
+## git hub repository
+
+https://github.com/Programming-Hero-Web-Course4/book-archive-sadrulj
+
+## Netlify live
+
+https://serene-jang-f40179.netlify.app/
+
 # book-archive
 
 ## [Private Repository Link](https://classroom.github.com/a/mOiiFMDY)

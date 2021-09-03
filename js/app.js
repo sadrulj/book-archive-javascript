@@ -6,7 +6,7 @@ const spinner = document.getElementById("spinner");
 const searchField = () => {
   const searchInput = document.getElementById("search-input");
   searchText = searchInput.value;
-  const url = `http://openlibrary.org/search.json?q=${searchText}`;
+  const url = `https://openlibrary.org/search.json?q=${searchText}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayResult(data.docs, data));
