@@ -28,12 +28,6 @@ const displayResult = (results, resultData) => {
   searchTotal.style.display = "block";
   searchResult.textContent = "";
   results?.forEach((result) => {
-    // Error Handing
-    if (results.message === "Not Found") {
-      searchInputText.innerText = "NO Result Found";
-    } else {
-      searchInputText.innerText = "";
-    }
     // getting info from api
     const div = document.createElement("div");
     div.classList.add("card");
